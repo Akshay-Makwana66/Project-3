@@ -99,7 +99,7 @@ project3
 - Update a book by changing its
   - title
   - excerpt
-  - release date
+  - release date 
   - ISBN
 - Make sure the unique constraints are not violated when making the update
 - Check if the bookId exists (must have isDeleted false and is present in collection). If it doesn't, return an HTTP status 404 with a response body like [this](#error-response-structure)
@@ -168,11 +168,11 @@ Refer below sample
 ## Collections
 ## users
 ```yaml
-{
+{                                           
   _id: ObjectId("88abc190ef0288abc190ef02"),
-  title: "Mr",
+  title: "Mr",                                       
   name: "John Doe",
-  phone: 9897969594,
+  phone: "9897969594",
   email: "johndoe@mailinator.com", 
   password: "abcd1234567",
   address: {
