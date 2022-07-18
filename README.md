@@ -113,21 +113,21 @@ project3
 ## Review APIs
 ### POST /books/:bookId/review
 - Add a review for the book in reviews collection.
-- Check if the bookId exists and is not deleted before adding the review. Send an error response with appropirate status code like [this](#error-response-structure) if the book does not exist
+- Check if the bookId exists and is not deleted before adding the review. Send an error response with appropirate status code like [this](#error-response-structure) if the book does not exist 
 - Get review details like review, rating, reviewer's name in request body.
 - Update the related book document by increasing its review count
 - Return the updated book document with reviews data on successful operation. The response body should be in the form of JSON object like [this](#successful-response-structure)
 
-### PUT /books/:bookId/review/:reviewId
+### PUT /books/:bookId/review/:reviewId     
 - Update the review - review, rating, reviewer's name.
 - Check if the bookId exists and is not deleted before updating the review. Check if the review exist before updating the review. Send an error response with appropirate status code like [this](#error-response-structure) if the book does not exist
 - Get review details like review, rating, reviewer's name in request body.
 - Return the updated book document with reviews data on successful operation. The response body should be in the form of JSON object like [this](#book-details-response)
 
-### DELETE /books/:bookId/review/:reviewId
+### DELETE /books/:bookId/review/:reviewId    
 - Check if the review exist with the reviewId. Check if the book exist with the bookId. Send an error response with appropirate status code like [this](#error-response-structure) if the book or book review does not exist
 - Delete the related reivew.
-- Update the books document - decrease review count by one
+- Update the books document - decrease review count by one        
 
 ### Authentication
 - Make sure all the book routes are protected.
@@ -309,7 +309,7 @@ Refer below sample
     "excerpt": "book body",
     "userId": ObjectId("88abc190ef0288abc190ef02")
     "category": "Book",
-    "subcategory": "Non fiction", "Self Help"],
+    "subcategory": ["Non fiction", "Self Help"],
     "isDeleted": false,
     "reviews": 0,
     "releasedAt": "2021-09-17"

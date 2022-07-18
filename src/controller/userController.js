@@ -16,7 +16,7 @@ const createUser = async function (req, res) {
     console.log(err)
     res.status(500).send({ status: false, msg: err.message })
   }
-}
+}      
 
 
 
@@ -43,16 +43,16 @@ const loginUser = async function (req, res) {
  if(!checkCred) return res.status(401).send({status:false, msg:"Email or password is incorrect"})
 
   //Token generation
-    let token = jwt.sign({
-      userId: checkCred._id.toString(),
+    let token = jwt.sign({                     
+      userId: checkCred._id.toString(),             
       iat: Math.floor(Date.now()/1000),
-      exp: Math.floor(Date.now()/1000)+ 3600
+      exp: Math.floor(Date.now()/1000)+ 1000000    
     },
       "4A group"
     );
     res.setHeader("x-api-key", token);
 
-    res.status(201).send({ status: true, data: {token} });
+    res.status(201).send({ status: true, data: {token} });                   
   } 
   catch (err) {
     res.status(500).send({ status: false, msg: err.message })

@@ -8,6 +8,9 @@ const bookSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
+    bookCover:{
+        type: String
+    },
     excerpt: {
         type: String,
         required: true
@@ -48,7 +51,7 @@ const bookSchema = new mongoose.Schema({
         default: false
     },
 
-    releasedAt: {
+    releasedAt: {    
          type: Date,
      required: true,             
     },
