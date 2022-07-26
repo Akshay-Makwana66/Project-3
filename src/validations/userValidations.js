@@ -32,7 +32,7 @@ const userValidations = async function (req, res, next) {
 
           if (!data.phone) return res.status(400).send({ status: false, msg: "Please Enter Phone Number" });
           if (typeof data.phone !== "string") return res.status(400).send({ status: false, msg: " Please enter only phone number of 10 digits & put in string" });
-          let validPhone = /^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$/
+          let validPhone = /^[6-9]\d{9}$/
           if (!validPhone.test(data.phone)) return res.status(400).send({ status: false, msg: "The user phone number should be indian may contain only 10 number" });
           let phone = data.phone;
           let duplicatePhone = await userModel.find({ phone: phone });
@@ -46,7 +46,7 @@ const userValidations = async function (req, res, next) {
 
         let email = data.email;
 
-        if (!/^([0-9a-z]([-_\\.]*[0-9a-z]+)*)@([a-z]([-_\\.]*[a-z]+)*)[\\.]([a-z]{2,9})+$/.test(email)) return res.status(400).send({ status: false, msg: "Entered email is invalid" });
+        if (!/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(email)) return res.status(400).send({ status: false, msg: "Entered email is invalid" });
 
         let duplicateEmail = await userModel.find({ email: email });
 
